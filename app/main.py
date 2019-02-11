@@ -10,7 +10,7 @@ app.config.from_mapping(SECRET_KEY='devIAm')  # Needed for session tracking
 
 @app.route('/', methods=['GET','POST'])
 def calculate():
-  t = {'a': 0, 'b': 0, 'c': 0}
+  t = {'a': 0, 'b': 0, 'c': 0}   # josh
   if request.method == 'POST':
     t['a'] = request.form['a']
     t['b'] = request.form['b']

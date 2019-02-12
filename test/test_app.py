@@ -3,7 +3,7 @@
 import os
 import pytest
 
-from app import *
+from app.main import app
 
 # This will get called before every test and can be used to set up a testing DB
 @pytest.fixture

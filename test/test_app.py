@@ -15,20 +15,14 @@ def client():
 def test_title(client):
     """Verify the title"""
     rv = client.get('/')
-    assert b'Multiply App' in rv.data
+    assert b'List Randomizer' in rv.data
 
-def test_multiplication_POST(client):
+def test_randomizer_GET(client):
     """Verify multiplication works"""
-    rv = client.post('/', data={'a':5, 'b':6}) # sends a and b as post values
-    assert b'30' in rv.data
+    rv = client.get('/?text_box=kristians%0D%0Aevan%0D%0Abailey%0D%0Aebube%0D%0Aante%0D%0Ajosh%0D%0A') # sends a and b as post values
+    assert b'/?text_box=kristians%0D%0Aevan%0D%0Abailey%0D%0Aebube%0D%0Aante%0D%0Ajosh%0D%0A' not in rv.data
 
-    rv = client.post('/', data={'a':-5, 'b':2})
-    assert b'-10' in rv.data
-
-def test_multiplication_GET(client):
-    """Verify multiplication works"""
-    rv = client.get('/?a=5&b=10') # sends a and b as post values
-    assert b'50' in rv.data
-
-    rv = client.get('/?a=9&b=9')
-    assert b'81' in rv.data
+    rv = []
+    for i in 10:
+        rv.append(client.get('/?text_box=kristians%0D%0Aevan%0D%0A'))
+    assert b'/?text_box=evan%0D%0Akristians%0D%0A' in rv.data

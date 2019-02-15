@@ -1,24 +1,26 @@
 <!doctype html>
+<html>
 <head>
 <title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 
 <body>
 <nav>
-  <h1>Multiply Application</h1>
+  <h1>LIST RANDOMIZER</h1>
 </nav>
 
 
 {% block content %}
-  <form method="post">
-    <label for="a">A:</label>
-    <input name="a" id="a" value="{{ t['a'] }}" required><br>
-    <label for="b">B:</label>
-    <input name="b" id="b" value="{{ t['b'] }}" required> <br>
-    <label for="b">A*B=</label>
-    <input name="c" id="c" value="{{ t['c'] }}"> <br>
-    <input type="submit" value="Multiply!">
-  </form>
+  
+   <form method="get">
+	  <textarea name="text_box" rows="10" cols="50" id = "areatext">{{ string1 }}</textarea>
+      <br/>
+      <br/>
+	  <input type="submit" value="Randomize!">
+
+   </form>
 {% endblock %}
 
 <p>You have used this page {{ times }} times</p>
@@ -26,3 +28,6 @@
 <a href="{{ url_for('logout') }}">Reset Session</a>
 
 </body>
+</html>
+
+

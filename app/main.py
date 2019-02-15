@@ -15,9 +15,7 @@ app.config.from_mapping(SECRET_KEY='devIAm')  # Needed for session tracking
 @app.route('/', methods=['GET','POST'])
 def randomizer():
   list1 = []
-  # if request.method == 'POST':
-  #   text_box_value = request.form['myTextarea']
-  # if form.getlist('myTextarea'):
+
   string1 = ""
   blank = " "
   noblank = ""
@@ -35,20 +33,7 @@ def randomizer():
      string1 = '\n'.join(textarea)
   if 'json' in request.args:
       return jsonify(textarea)
- # def calculate():
- #   t = {'a': 0, 'b': 0, 'c': 0}   # josh
- #   if request.method == 'POST':
- #     t['a'] = request.form['a']
- #     t['b'] = request.form['b']
- #   elif 'a' in request.args:
- #     t['a'] = request.args.get('a')
- #     t['b'] = request.args.get('b')
- #   t['c'] = int(t['a']) * int(t['b'])
- 
- 
- 
-  # Update the number of visits
-  # session is a dict which persists.  Stored in client cookie (no local storage)
+
   if 'times' not in session:
     session['times'] = 0
   session['times'] += 1

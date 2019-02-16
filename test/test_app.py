@@ -23,6 +23,6 @@ def test_randomizer_GET(client):
     assert b'/?text_box=kristians%0D%0Aevan%0D%0Abailey%0D%0Aebube%0D%0Aante%0D%0Ajosh%0D%0A' not in rv.data
 
     rv = []
-    for i in 10:
+    for i in range(0,10):
         rv.append(client.get('/?text_box=kristians%0D%0Aevan%0D%0A'))
     assert b'/?text_box=evan%0D%0Akristians%0D%0A' in rv.data
